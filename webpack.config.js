@@ -17,16 +17,17 @@ module.exports = {
         'style-loader',
         'css-loader'
       ]
-    }, {
+    },{
       test: /\.(jpe?g|png|gif|svg)$/,
       use: [
         {
           loader: 'url-loader',
-          options: { limit: 40000 }
+          options: { limit: 400000 }
         },
         'image-webpack-loader'
       ]
-    }]
+    }
+  ]
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
