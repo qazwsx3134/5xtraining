@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux";
 import Nav from '../components/nav/Nav'
 import SlideShow from "../components/SlideShow1/SlideShow";
 import Feature from "../components/featureList/Feature";
@@ -22,9 +23,9 @@ import case1 from "../components/Showcases/case1.png"
 import case2 from "../components/Showcases/case2.png"
 import case3 from "../components/Showcases/case3.jpg"
 
-import data from "../staticData/data";
 
-const Index=()=> {
+
+const Index=(props)=> {
 
 
     return (
@@ -39,17 +40,17 @@ const Index=()=> {
           
           {/* feature */}
         <FeatureSection>
-          <Feature url={`${data.Feature[0].url}`} img={Pic1} title1={`${data.Feature[0].title1}`} titel2={`${data.Feature[0].title2}`} text={`${data.Feature[0].text}`}/>
-          <Feature url={`${data.Feature[1].url}`} img={Pic2} title1={`${data.Feature[1].title1}`} titel2={`${data.Feature[1].title2}`} text={`${data.Feature[1].text}`}/>
-          <Feature url={`${data.Feature[2].url}`} img={Pic3} title1={`${data.Feature[2].title1}`} titel2={`${data.Feature[2].title2}`} text={`${data.Feature[2].text}`}/>
-          <Feature url={`${data.Feature[3].url}`} img={Pic4} title1={`${data.Feature[3].title1}`} titel2={`${data.Feature[3].title2}`} text={`${data.Feature[3].text}`}/>
+          <Feature url={`${props.data.Feature[0].url}`} img={Pic1} title1={`${props.data.Feature[0].title1}`} titel2={`${props.data.Feature[0].title2}`} text={`${props.data.Feature[0].text}`}/>
+          <Feature url={`${props.data.Feature[1].url}`} img={Pic2} title1={`${props.data.Feature[1].title1}`} titel2={`${props.data.Feature[1].title2}`} text={`${props.data.Feature[1].text}`}/>
+          <Feature url={`${props.data.Feature[2].url}`} img={Pic3} title1={`${props.data.Feature[2].title1}`} titel2={`${props.data.Feature[2].title2}`} text={`${props.data.Feature[2].text}`}/>
+          <Feature url={`${props.data.Feature[3].url}`} img={Pic4} title1={`${props.data.Feature[3].title1}`} titel2={`${props.data.Feature[3].title2}`} text={`${props.data.Feature[3].text}`}/>
         </FeatureSection> 
 
         {/*recent lecture  */}
         <LectureSection>
-                  <Lecture img={lec1} newOpen={data.Lecture[0].newOpen} apply={data.Lecture[0].apply} text={`${data.Lecture[0].text}`} teacher={`${data.Lecture[0].teacher}`} month={`${data.Lecture[0].month}`} class={`${data.Lecture[0].class}`} />
-                  <Lecture img={lec2} newOpen={data.Lecture[1].newOpen} apply={data.Lecture[1].apply} text={`${data.Lecture[1].text}`} teacher={`${data.Lecture[1].teacher}`} month={`${data.Lecture[1].month}`} class={`${data.Lecture[1].class}`}/>
-                  <Lecture img={lec3} newOpen={data.Lecture[2].newOpen} apply={data.Lecture[2].apply} text={`${data.Lecture[2].text}`} teacher={`${data.Lecture[2].teacher}`} month={`${data.Lecture[2].month}`} class={`${data.Lecture[2].class}`}/>
+                  <Lecture img={lec1} newOpen={props.data.Lecture[0].newOpen} apply={props.data.Lecture[0].apply} text={`${props.data.Lecture[0].text}`} teacher={`${props.data.Lecture[0].teacher}`} month={`${props.data.Lecture[0].month}`} class={`${props.data.Lecture[0].class}`} />
+                  <Lecture img={lec2} newOpen={props.data.Lecture[1].newOpen} apply={props.data.Lecture[1].apply} text={`${props.data.Lecture[1].text}`} teacher={`${props.data.Lecture[1].teacher}`} month={`${props.data.Lecture[1].month}`} class={`${props.data.Lecture[1].class}`}/>
+                  <Lecture img={lec3} newOpen={props.data.Lecture[2].newOpen} apply={props.data.Lecture[2].apply} text={`${props.data.Lecture[2].text}`} teacher={`${props.data.Lecture[2].teacher}`} month={`${props.data.Lecture[2].month}`} class={`${props.data.Lecture[2].class}`}/>
         </LectureSection>
           {/* avatar carousel */}
 
@@ -59,9 +60,9 @@ const Index=()=> {
          {/* Showcase */}
 
          <ShowcaseSection>
-            <Showcase img={case1} title={'SpaceNextDoor'} text={'Space Next Door is inspired by the sharing economy in which we hope to encourage people to put up their unused space so that users looking for personal or business storage space have better options, closer to where they need it. We are striving to build a trusted community marketplace for you to list, discover and book the nearest and best space at affordable prices.'} />
-            <Showcase img={case2} title={'Shopmatic Go app'} text={"Shopmatic Go is an exciting online platform where you can create a unique and comprehensive online store for your business, in a matter of minutes."}/>
-            <Showcase img={case3} title={'跨境電子商務 Shopmatic'} text={"Shopmatic manages the entire ecosystem for anyone wanting to sell online. We go the extra mile to ensure that we help you in every step of the process to grow your business online - from developing your own unique webstore, to listing you on marketplaces and social channels, to providing you insights on how to sell online."}/>
+            <Showcase img={case1} title={props.data.Showcase[0].title} text={props.data.Showcase[0].text} />
+            <Showcase img={case2} title={props.data.Showcase[1].title} text={props.data.Showcase[1].text}/>
+            <Showcase img={case3} title={props.data.Showcase[2].title} text={props.data.Showcase[2].text}/>
           </ShowcaseSection>
           {/* know about us */}
           <KnowAboutUS />
@@ -73,6 +74,10 @@ const Index=()=> {
     );
   }
 
-
-export default Index;
+  const mapStateToProps = (state)=>{
+    return {
+        data: state.data.data
+    };
+}
+export default connect(mapStateToProps)(Index);
 

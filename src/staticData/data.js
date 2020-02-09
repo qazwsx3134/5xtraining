@@ -1,3 +1,5 @@
+import Showcase from "../components/Showcases/Showcase";
+
 const Data = {
     Feature : [ 
         {
@@ -49,6 +51,20 @@ const Data = {
             teacher : "許國政 (Kuro Hsu)",
             month: "3",
             class: "假日班"
+        },
+    ],
+    Showcase : [
+        {
+            title: "SpaceNextDoor",
+            text: "Space Next Door is inspired by the sharing economy in which we hope to encourage people to put up their unused space so that users looking for personal or business storage space have better options, closer to where they need it. We are striving to build a trusted community marketplace for you to list, discover and book the nearest and best space at affordable prices."
+        },
+        {
+            title: "Shopmatic Go app",
+            text: "Shopmatic Go is an exciting online platform where you can create a unique and comprehensive online store for your business, in a matter of minutes."
+        },
+        {
+            title: "跨境電子商務 Shopmatic",
+            text: "Shopmatic manages the entire ecosystem for anyone wanting to sell online. We go the extra mile to ensure that we help you in every step of the process to grow your business online - from developing your own unique webstore, to listing you on marketplaces and social channels, to providing you insights on how to sell online."
         },
     ]
 };
