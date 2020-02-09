@@ -46,7 +46,12 @@ const SlideShow = (props)=>{
         
         <div className="slideshow">
         
-        
+        <div className="dotbox">
+                <span id="0" className={`${active === 0 ? 'dot_active':'dot'} `} onClick={changeSlide}></span>
+                <span id="1" className={`${active === 1 ? 'dot_active':'dot'} `} onClick={changeSlide}></span>
+                <span id="2" className={`${active === 2 ? 'dot_active':'dot'} `} onClick={changeSlide}></span>
+                <span id="3" className={`${active === 3 ? 'dot_active':'dot'} `} onClick={changeSlide}></span>
+        </div>
         <div className="slider" onMouseOver={onMouseOverChange} onMouseOut={onMouseOutChange}>
             <div key={"1"} className="slide" style={{transform: `translateX(${sliderXposition}%)`}}> 
                 <img className="responsiveimg" src={Banner1} alt={"b1"} />
@@ -73,12 +78,7 @@ const SlideShow = (props)=>{
             })} */}
             
         </div>
-            <div className="dotbox">
-                <span id="0" className={`${active === 0 ? 'dot_active':'dot'} `} onClick={changeSlide}></span>
-                <span id="1" className={`${active === 1 ? 'dot_active':'dot'} `} onClick={changeSlide}></span>
-                <span id="2" className={`${active === 2 ? 'dot_active':'dot'} `} onClick={changeSlide}></span>
-                <span id="3" className={`${active === 3 ? 'dot_active':'dot'} `} onClick={changeSlide}></span>
-            </div>
+            
 
         </div>
     )

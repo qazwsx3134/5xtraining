@@ -5,10 +5,20 @@ import { faGem,faCompass } from '@fortawesome/free-regular-svg-icons'
 
 const Nav = (props)=>{
     const [buttonClick, setButtonClick] = useState(false)
+    const [collapsing, setCollapsing] = useState(false)
     
     const onButtonClick =()=>{
-
-        setButtonClick(!buttonClick)
+        if (buttonClick === true) {
+            setButtonClick(false)
+            setCollapsing(true)
+            setTimeout(() => {
+                
+                setCollapsing(false)
+            }, 350);
+        }else {
+            setButtonClick(true)
+        }
+        
     }
     return (
         <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-xl navbar-light overwrite-nav">
@@ -24,7 +34,7 @@ const Nav = (props)=>{
                 <div className="icon-bar"></div>
             </button>
             {/* link list */}
-                <div className={`navbar-collapse flex-row-reverse collapse ${buttonClick ? 'show' : ''}`} >
+                <div className={`navbar-collapse flex-row-reverse  ${buttonClick ? 'show' : ''} ${collapsing ? 'collapsing' : 'collapse'}`}  >
                 <ul className="navbar-nav">
                     <li className="nav-item text-center">
                         <a className="nav-link is-event" href="https://iamcoding.tw/" target="_blank" rel="noopener noreferrer">
@@ -53,7 +63,7 @@ const Nav = (props)=>{
                         <a className={`${props.page  === "space" ? "nav-link nav-Active" : "nav-link" }`} href="/space">空間租借</a>
                     </li>
                     <li className="nav-item text-center">
-                        <a className={`${props.page  === "posts" ? "nav-link nav-Active" : "nav-link" }`} href="/posts">最新消息</a>
+                        <a className={`${props.page  === "posts" ? "nav-link nav-Active" : "nav-link" } `} href="/posts">最新消息</a>
                     </li>
                 </ul>
             </div>

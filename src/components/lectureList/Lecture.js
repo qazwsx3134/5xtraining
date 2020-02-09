@@ -20,7 +20,7 @@ const Lecture = (props)=>{
                     <div className="lecture-time mt-2 pt-sm-3 pt-2 pt-sm-3 d-flex">
                         <small className="flex-grow">開課時間</small>
                         <div className="lecture-time-item">
-                            <span className="badge badge-course-time mb-1">{props.month} 月｜{props.className}</span>
+                            <span className="badge badge-course-time mb-1">{props.month} 月｜{props.class}</span>
                         </div>
                     </div>
                 </div>
