@@ -20,7 +20,7 @@
 ### （番外篇）選修課題
 redux (container、action、reducer)
 
-## 認為可以改進的地方
+## 認為可以改進我寫這次題目的地方
 
  1. 以SVG 代替 FontAwesome
  2. 利用Sass代替並管理CSS 可以分不同的component寫scss
